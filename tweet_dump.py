@@ -1,6 +1,10 @@
 import twitter
 import re 
 
+
+# tweets to seed generation with
+screen_names = ["CaucasianJames"]
+
 api = twitter.Api(consumer_key="SuAasV1Bz4JyV6dJs3JSvmtuh",
                   consumer_secret="HaSiLPfeOmt9jJKopX9ioQ4JVgMKVdyVCnupcj0YJp3z5cyWQs",
                   access_token_key="1130029381106061312-ds9I54ZOxizb4K2GvlYMtZ3CWXr9pp",
@@ -34,8 +38,6 @@ def get_tweets(api=None, screen_name=None):
 def urls_in_text(string): 
     url = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', string) 
     return url 
-
-screen_names = ["CaucasianJames"]
 
 for screen_name in screen_names:
     timeline = get_tweets(api=api, screen_name=screen_name)
